@@ -32,11 +32,10 @@ const Content = () => {
     }
 
     return (
-        <div className="py-16 xl:py-24 space-y-20"
-        >
+        <div className="py-16 xl:py-24 space-y-20" >
             <div className="space-y-10 md:space-y-16 xl:space-y-24 text-center px-2 md:px-12 xl:px-0">
                 <div className="space-y-4">
-                    <h3 className="heading-4 xl:heading-3 font-dancing-script">Multumim</h3>
+                    <h3 className="heading-4 xl:heading-3 font-dancing-script" >Multumim</h3>
                     <p className="text-xs md:text-sm xl:text-base font-roboto-slab">Va fi o onoare și o bucurie pentru noi dacă ne veți fi alături pentru a oferi binecuvântarea voastră mirilor.</p>
                 </div>
                 <h3 className="heading-4 xl:heading-3 font-dancing-script">

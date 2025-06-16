@@ -78,12 +78,13 @@ export default function Form() {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3 mt-10 max-w-xl mx-auto px-5 md:px-0">
+    <form onSubmit={submit} className="space-y-3 mt-10 max-w-xl mx-auto px-5 md:px-0" autoComplete="off">
       <div className="space-y-1">
         <input
           type="text"
           name="name"
-          placeholder="Nume"
+          placeholder="Nume și prenume"
+          autoComplete="off"
           value={form.name}
           onChange={handleChange}
           className="block w-full rounded-md bg-gray-100 border-transparent focus:border-ivory focus:bg-white focus:ring-0"
@@ -119,6 +120,7 @@ export default function Form() {
         <textarea
           name="message"
           placeholder="Mesaj (opțional)"
+          autoComplete="off"
           value={form.message}
           onChange={handleChange}
           maxLength={200}
