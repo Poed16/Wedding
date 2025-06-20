@@ -48,82 +48,56 @@ export default function Invitation() {
 }
 
 function Card() {
-    const invitation = useInvitation()
+  const invitation = useInvitation()
 
-    function openInvitation() {
-        invitation.openInvitation()
+  function openInvitation() {
+    invitation.openInvitation()
+  }
+
+  React.useEffect(() => {
+    const html = document.querySelector("html") as HTMLHtmlElement
+    if (html) html.style.overflow = "hidden"
+
+    return () => {
+      if (html) html.style.overflow = "visible"
     }
+  }, [])
 
-    React.useEffect(() => {
-        const html = document.querySelector("html") as HTMLHtmlElement
+  useLockBodyScroll()
 
-        if (html) {
-            html.style.overflow = "hidden"
-        }
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+     <motion.section
+        className="w-full h-full max-w-[2650px] mx-auto flex justify-center px-7 md:px-14 py-7 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/photos/hero.jpg')" }}
+        {...anim({ delay: 0 })}>
+        <div className="w-full xl:w-5/12 space-y-6 flex flex-col justify-center items-center text-center">
+          <div className="space-y-4">
+            <div className="-space-y-3">
+              <h3 className="heading-3 font-dancing-script">01</h3>
+              <h3 className="heading-3 font-dancing-script">Octombrie</h3>
+              <h3 className="heading-3 font-dancing-script">25</h3>
+            </div>
+            <div className="w-[1.5px] bg-black h-36 mx-auto" />
+            <h2 className="heading-3 xl:heading-2 font-bold font-dancing-script">
+              Andreea & <br /> Claudiu
+            </h2>
+          </div>
 
-        return () => {
-            if (html) {
-                html.style.overflow = "visible"
-            }
-        }
-
-    }, [])
-
-
-    // hidden scroll y body
-    useLockBodyScroll()
-
-    return (
-        <div className="fixed inset-0 z-[100] bg-ivory">
-            <section
-                className="min-h-dvh max-w-[2650px] mx-auto bg-ivory flex flex-col md:flex-row justify-between overflow-hidden">
-                <motion.div
-                    className="px-7 md:px-14 py-7 w-full xl:w-5/12 space-y-6"
-                    {...anim({ delay: 0 })}
-                >
-                    <div className="space-y-4">
-                        <div className="-space-y-3">
-                            <h3 className="heading-3 font-roboto-slab">01</h3>
-                            <h3 className="heading-3 font-roboto-slab">10</h3>
-                            <h3 className="heading-3 font-roboto-slab">25</h3>
-                        </div>
-                        <div className="w-[1.5px] bg-black h-36 ml-5" />
-                        <h2 className="heading-3 xl:heading-2 font-bold font-dancing-script">
-                            Tom & <br />Andreea
-                        </h2>
-                    </div>
-                    {/* <div className="font-roboto-slab">
-                    <p className="text-sm">Special invitation to</p>
-                    <p className="font-medium">{inviteFor ?? "-"}</p>
-                </div> */}
-                    <div className="flex justify-start md:justify-center items-center pt-4">
-                        <button onClick={openInvitation} className="group">
-                            <div className="flex flex-col justify-center items-center border border-black rounded-lg px-4 py-2 pb-1 -space-y-1">
-                                <p className="font-roboto-slab text-sm">Deschide invitatia</p>
-                                <RiArrowDownWideLine className="text-3xl group-hover:translate-y-1 group-active:scale-75 transition duration-300" />
-                            </div>
-                        </button>
-                    </div>
-                </motion.div>
-                <motion.div
-                    className="w-full h-screen"
-                    {...anim({ delay: 0.1 })}
-                >
-                    <Image
-                        src="/photos/5.jpg"
-                        alt="hero-photos"
-                        width={1000}
-                        height={1000}
-                        quality={100}
-                        priority
-                        className="size-full object-cover"
-                    />
-                </motion.div>
-            </section >
+          <div className="pt-4">
+            <button onClick={openInvitation} className="group">
+              <div className="flex flex-col justify-center items-center border border-black rounded-lg px-4 py-2 pb-1 -space-y-1">
+                <p className="font-dancing-script text-lg ">Deschide invitația</p>
+                <RiArrowDownWideLine className="text-3xl group-hover:translate-y-1 group-active:scale-75 transition duration-300" />
+              </div>
+            </button>
+          </div>
         </div>
-
-    )
+      </motion.section>
+    </div>
+  )
 }
+
 
 
 // const search = useSearchParams()
