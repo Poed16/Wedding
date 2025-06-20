@@ -83,7 +83,7 @@ function Card() {
               Andreea & <br /> Claudiu
             </h2>
           </div>
-
+<br></br><br></br><br></br>
           <div className="pt-4">
             <button onClick={openInvitation} className="group">
               <div className="flex flex-col justify-center items-center border border-black rounded-lg px-4 py-2 pb-1 -space-y-1">
